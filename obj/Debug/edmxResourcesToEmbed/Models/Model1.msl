@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="nottakipModelStoreContainer" CdmEntityContainer="nottakipEntities1">
+    <EntitySetMapping Name="kullanıcı_ogrenci">
+      <EntityTypeMapping TypeName="nottakipModel.kullanıcı_ogrenci">
+        <MappingFragment StoreEntitySet="kullanıcı_ogrenci">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="OgrenciNo" ColumnName="OgrenciNo" />
+          <ScalarProperty Name="KullanıcıSifre" ColumnName="KullanıcıSifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="kullanıcı_ogretmen">
+      <EntityTypeMapping TypeName="nottakipModel.kullanıcı_ogretmen">
+        <MappingFragment StoreEntitySet="kullanıcı_ogretmen">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="KullaniciAd" ColumnName="KullaniciAd" />
+          <ScalarProperty Name="KullanıcıSifre" ColumnName="KullanıcıSifre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ogrenci">
+      <EntityTypeMapping TypeName="nottakipModel.ogrenci">
+        <MappingFragment StoreEntitySet="ogrenci">
+          <ScalarProperty Name="ogrenci_numara" ColumnName="ogrenci_numara" />
+          <ScalarProperty Name="ogrenci_adı" ColumnName="ogrenci_adı" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ogretmen">
+      <EntityTypeMapping TypeName="nottakipModel.ogretmen">
+        <MappingFragment StoreEntitySet="ogretmen">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ogrenci_numara" ColumnName="ogrenci_numara" />
+          <ScalarProperty Name="Ders_Kodu" ColumnName="Ders_Kodu" />
+          <ScalarProperty Name="Ders_Adı" ColumnName="Ders_Adı" />
+          <ScalarProperty Name="Vize_Notu" ColumnName="Vize_Notu" />
+          <ScalarProperty Name="Final_Notu" ColumnName="Final_Notu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

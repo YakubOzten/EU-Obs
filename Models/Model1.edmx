@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="nottakipModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="kullanıcı_ogrenci">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OgrenciNo" Type="int" />
+          <Property Name="KullanıcıSifre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="kullanıcı_ogretmen">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="KullaniciAd" Type="nvarchar" MaxLength="50" />
+          <Property Name="KullanıcıSifre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ogrenci">
+          <Key>
+            <PropertyRef Name="ogrenci_numara" />
+          </Key>
+          <Property Name="ogrenci_numara" Type="int" Nullable="false" />
+          <Property Name="ogrenci_adı" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ogretmen">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ogrenci_numara" Type="int" />
+          <Property Name="Ders_Kodu" Type="int" />
+          <Property Name="Ders_Adı" Type="nvarchar" MaxLength="50" />
+          <Property Name="Vize_Notu" Type="tinyint" />
+          <Property Name="Final_Notu" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ogretmen_ogrenci">
+          <End Role="ogrenci" Type="Self.ogrenci" Multiplicity="0..1" />
+          <End Role="ogretmen" Type="Self.ogretmen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ogrenci">
+              <PropertyRef Name="ogrenci_numara" />
+            </Principal>
+            <Dependent Role="ogretmen">
+              <PropertyRef Name="ogrenci_numara" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="nottakipModelStoreContainer">
+          <EntitySet Name="kullanıcı_ogrenci" EntityType="Self.kullanıcı_ogrenci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kullanıcı_ogretmen" EntityType="Self.kullanıcı_ogretmen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ogrenci" EntityType="Self.ogrenci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ogretmen" EntityType="Self.ogretmen" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ogretmen_ogrenci" Association="Self.FK_ogretmen_ogrenci">
+            <End Role="ogrenci" EntitySet="ogrenci" />
+            <End Role="ogretmen" EntitySet="ogretmen" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="nottakipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="kullanıcı_ogrenci">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OgrenciNo" Type="Int32" />
+          <Property Name="KullanıcıSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="kullanıcı_ogretmen">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="KullaniciAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KullanıcıSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ogrenci">
+          <Key>
+            <PropertyRef Name="ogrenci_numara" />
+          </Key>
+          <Property Name="ogrenci_numara" Type="Int32" Nullable="false" />
+          <Property Name="ogrenci_adı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ogretmen" Relationship="Self.FK_ogretmen_ogrenci" FromRole="ogrenci" ToRole="ogretmen" />
+        </EntityType>
+        <EntityType Name="ogretmen">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ogrenci_numara" Type="Int32" />
+          <Property Name="Ders_Kodu" Type="Int32" />
+          <Property Name="Ders_Adı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Vize_Notu" Type="Byte" />
+          <Property Name="Final_Notu" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="ogrenci" Relationship="Self.FK_ogretmen_ogrenci" FromRole="ogretmen" ToRole="ogrenci" />
+        </EntityType>
+        <Association Name="FK_ogretmen_ogrenci">
+          <End Role="ogrenci" Type="Self.ogrenci" Multiplicity="0..1" />
+          <End Role="ogretmen" Type="Self.ogretmen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ogrenci">
+              <PropertyRef Name="ogrenci_numara" />
+            </Principal>
+            <Dependent Role="ogretmen">
+              <PropertyRef Name="ogrenci_numara" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="nottakipEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="kullanıcı_ogrenci" EntityType="Self.kullanıcı_ogrenci" />
+          <EntitySet Name="kullanıcı_ogretmen" EntityType="Self.kullanıcı_ogretmen" />
+          <EntitySet Name="ogrenci" EntityType="Self.ogrenci" />
+          <EntitySet Name="ogretmen" EntityType="Self.ogretmen" />
+          <AssociationSet Name="FK_ogretmen_ogrenci" Association="Self.FK_ogretmen_ogrenci">
+            <End Role="ogrenci" EntitySet="ogrenci" />
+            <End Role="ogretmen" EntitySet="ogretmen" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="nottakipModelStoreContainer" CdmEntityContainer="nottakipEntities1">
+          <EntitySetMapping Name="kullanıcı_ogrenci">
+            <EntityTypeMapping TypeName="nottakipModel.kullanıcı_ogrenci">
+              <MappingFragment StoreEntitySet="kullanıcı_ogrenci">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="OgrenciNo" ColumnName="OgrenciNo" />
+                <ScalarProperty Name="KullanıcıSifre" ColumnName="KullanıcıSifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kullanıcı_ogretmen">
+            <EntityTypeMapping TypeName="nottakipModel.kullanıcı_ogretmen">
+              <MappingFragment StoreEntitySet="kullanıcı_ogretmen">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="KullaniciAd" ColumnName="KullaniciAd" />
+                <ScalarProperty Name="KullanıcıSifre" ColumnName="KullanıcıSifre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ogrenci">
+            <EntityTypeMapping TypeName="nottakipModel.ogrenci">
+              <MappingFragment StoreEntitySet="ogrenci">
+                <ScalarProperty Name="ogrenci_numara" ColumnName="ogrenci_numara" />
+                <ScalarProperty Name="ogrenci_adı" ColumnName="ogrenci_adı" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ogretmen">
+            <EntityTypeMapping TypeName="nottakipModel.ogretmen">
+              <MappingFragment StoreEntitySet="ogretmen">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ogrenci_numara" ColumnName="ogrenci_numara" />
+                <ScalarProperty Name="Ders_Kodu" ColumnName="Ders_Kodu" />
+                <ScalarProperty Name="Ders_Adı" ColumnName="Ders_Adı" />
+                <ScalarProperty Name="Vize_Notu" ColumnName="Vize_Notu" />
+                <ScalarProperty Name="Final_Notu" ColumnName="Final_Notu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,39 @@
+﻿@model OgrenciBilgiSistemi.Models.ogretmen
+
+@{
+    ViewBag.Title = "ogretmenilkekran";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+
+}
+<div class="custom-widgets">
+    <div class="row-one">
+        <div class="col-md-3 widget">
+            <div class="stats-left ">
+                <h5>Online</h5>
+                <h4> Kullanıcı</h4>
+            </div>
+            <div class="stats-right">
+                <label>@ViewBag.OnlineUyeSayisi</label>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+
+        <div class="clearfix"> </div>
+
+
+        
+    </div>
+</div>
+
+
+@if (Session["KullaniciAd"] != null)
+{
+    <text>
+        <h1>Hosgeldin @Session["KullaniciAd"].ToString()</h1>
+
+
+    </text>
+}
+
+
+

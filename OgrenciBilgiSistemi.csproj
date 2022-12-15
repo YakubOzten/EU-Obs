@@ -1,0 +1,634 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6C5199FA-6B0D-453E-A69C-7BD4F04C9B8A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OgrenciBilgiSistemi</RootNamespace>
+    <AssemblyName>OgrenciBilgiSistemi</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44362</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic.Core, Version=1.2.18.0, Culture=neutral, PublicKeyToken=0f07ec44de6ac832, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.Dynamic.Core.1.2.18\lib\net46\System.Linq.Dynamic.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GüvenlikController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\kullanıcı_ogrenciController.cs" />
+    <Compile Include="Controllers\kullanıcı_ogretmenController.cs" />
+    <Compile Include="Controllers\ogrencisController.cs" />
+    <Compile Include="Controllers\ogretmenController.cs" />
+    <Compile Include="Controllers\ogretmenlayoutController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\baglanti.cs" />
+    <Compile Include="Models\kullanıcı_ogrenci.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\kullanıcı_ogretmen.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ogrenci.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OgrenciOgretmenbaglanti.cs" />
+    <Compile Include="Models\ogretmen.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="ogretmenweb\404.html" />
+    <Content Include="ogretmenweb\500.html" />
+    <Content Include="ogretmenweb\blank.html" />
+    <Content Include="ogretmenweb\buttons.html" />
+    <Content Include="ogretmenweb\calender.html" />
+    <Content Include="ogretmenweb\chart.html" />
+    <Content Include="ogretmenweb\compose.html" />
+    <Content Include="ogretmenweb\css\atlas.css" />
+    <Content Include="ogretmenweb\css\bars.css" />
+    <Content Include="ogretmenweb\css\bootstrap-markdown.min.css" />
+    <Content Include="ogretmenweb\css\bootstrap.min.css" />
+    <Content Include="ogretmenweb\css\chocolat.css" />
+    <Content Include="ogretmenweb\css\clndr.css" />
+    <Content Include="ogretmenweb\css\fabochart.css" />
+    <Content Include="ogretmenweb\css\font-awesome.css" />
+    <Content Include="ogretmenweb\css\icon-font.min.css" />
+    <Content Include="ogretmenweb\css\jqvmap.css" />
+    <Content Include="ogretmenweb\css\popuo-box.css" />
+    <Content Include="ogretmenweb\css\style.css" />
+    <Content Include="ogretmenweb\css\vroom.css" />
+    <Content Include="ogretmenweb\editor.html" />
+    <Content Include="ogretmenweb\fonts\digital-7-webfont.svg" />
+    <Content Include="ogretmenweb\fonts\digital-7_italic-webfont.svg" />
+    <Content Include="ogretmenweb\fonts\digital-7_mono-webfont.svg" />
+    <Content Include="ogretmenweb\fonts\fontawesome-webfont.svg" />
+    <Content Include="ogretmenweb\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="ogretmenweb\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="ogretmenweb\forms.html" />
+    <Content Include="ogretmenweb\graph.html" />
+    <Content Include="ogretmenweb\grids.html" />
+    <Content Include="ogretmenweb\images\1.jpg" />
+    <Content Include="ogretmenweb\images\1.png" />
+    <Content Include="ogretmenweb\images\2.png" />
+    <Content Include="ogretmenweb\images\2222.png" />
+    <Content Include="ogretmenweb\images\3.png" />
+    <Content Include="ogretmenweb\images\4.png" />
+    <Content Include="ogretmenweb\images\5.png" />
+    <Content Include="ogretmenweb\images\admin.jpg" />
+    <Content Include="ogretmenweb\images\admin1.jpg" />
+    <Content Include="ogretmenweb\images\admin2.jpg" />
+    <Content Include="ogretmenweb\images\alarm.png" />
+    <Content Include="ogretmenweb\images\business-1031754_640.jpg" />
+    <Content Include="ogretmenweb\images\clockface.png" />
+    <Content Include="ogretmenweb\images\closew.gif" />
+    <Content Include="ogretmenweb\images\cross.png" />
+    <Content Include="ogretmenweb\images\fb.png" />
+    <Content Include="ogretmenweb\images\hourhand.png" />
+    <Content Include="ogretmenweb\images\icons.png" />
+    <Content Include="ogretmenweb\images\in.jpg" />
+    <Content Include="ogretmenweb\images\in1.jpg" />
+    <Content Include="ogretmenweb\images\in10.jpg" />
+    <Content Include="ogretmenweb\images\in11.jpg" />
+    <Content Include="ogretmenweb\images\in2.jpg" />
+    <Content Include="ogretmenweb\images\in3.jpg" />
+    <Content Include="ogretmenweb\images\in4.jpg" />
+    <Content Include="ogretmenweb\images\in5.jpg" />
+    <Content Include="ogretmenweb\images\in6.jpg" />
+    <Content Include="ogretmenweb\images\in7.jpg" />
+    <Content Include="ogretmenweb\images\in8.jpg" />
+    <Content Include="ogretmenweb\images\in9.jpg" />
+    <Content Include="ogretmenweb\images\leftw.gif" />
+    <Content Include="ogretmenweb\images\minhand.png" />
+    <Content Include="ogretmenweb\images\p1.jpg" />
+    <Content Include="ogretmenweb\images\p2.jpg" />
+    <Content Include="ogretmenweb\images\p3.jpg" />
+    <Content Include="ogretmenweb\images\p4.jpg" />
+    <Content Include="ogretmenweb\images\p5.jpg" />
+    <Content Include="ogretmenweb\images\p6.jpg" />
+    <Content Include="ogretmenweb\images\pic3.jpg" />
+    <Content Include="ogretmenweb\images\rightw.gif" />
+    <Content Include="ogretmenweb\images\right_arrow.png" />
+    <Content Include="ogretmenweb\images\search.png" />
+    <Content Include="ogretmenweb\images\search2.png" />
+    <Content Include="ogretmenweb\images\sechand.png" />
+    <Content Include="ogretmenweb\images\social.png" />
+    <Content Include="ogretmenweb\images\speed.png" />
+    <Content Include="ogretmenweb\images\tick1.png" />
+    <Content Include="ogretmenweb\images\time.png" />
+    <Content Include="ogretmenweb\images\timer.png" />
+    <Content Include="ogretmenweb\images\tw.png" />
+    <Content Include="ogretmenweb\images\watch.png" />
+    <Content Include="ogretmenweb\inbox.html" />
+    <Content Include="ogretmenweb\index.html" />
+    <Content Include="ogretmenweb\js\amcharts.js" />
+    <Content Include="ogretmenweb\js\arbor.js" />
+    <Content Include="ogretmenweb\js\atlas.js" />
+    <Content Include="ogretmenweb\js\barChart.jquery.js" />
+    <Content Include="ogretmenweb\js\bootstrap-markdown.js" />
+    <Content Include="ogretmenweb\js\bootstrap.min.js" />
+    <Content Include="ogretmenweb\js\cbpFWTabs.js" />
+    <Content Include="ogretmenweb\js\Chart-pie.js" />
+    <Content Include="ogretmenweb\js\Chart.js" />
+    <Content Include="ogretmenweb\js\clndr.js" />
+    <Content Include="ogretmenweb\js\css3clock.js" />
+    <Content Include="ogretmenweb\js\CSSPlugin.min.js" />
+    <Content Include="ogretmenweb\js\datamaps-all.js" />
+    <Content Include="ogretmenweb\js\dygraph-combined.js" />
+    <Content Include="ogretmenweb\js\fabochart.js" />
+    <Content Include="ogretmenweb\js\jquery-1.10.2.min.js" />
+    <Content Include="ogretmenweb\js\jquery.chocolat.js" />
+    <Content Include="ogretmenweb\js\jquery.nicescroll.js" />
+    <Content Include="ogretmenweb\js\jquery.vmap.js" />
+    <Content Include="ogretmenweb\js\jquery.vmap.sampledata.js" />
+    <Content Include="ogretmenweb\js\jquery.vmap.world.js" />
+    <Content Include="ogretmenweb\js\light.js" />
+    <Content Include="ogretmenweb\js\map.js" />
+    <Content Include="ogretmenweb\js\modernizr.custom.04022.js" />
+    <Content Include="ogretmenweb\js\moment-2.2.1.js" />
+    <Content Include="ogretmenweb\js\protovis-d3.2.js" />
+    <Content Include="ogretmenweb\js\radar.js" />
+    <Content Include="ogretmenweb\js\responsiveslides.min.js" />
+    <Content Include="ogretmenweb\js\scripts.js" />
+    <Content Include="ogretmenweb\js\serial.js" />
+    <Content Include="ogretmenweb\js\site.js" />
+    <Content Include="ogretmenweb\js\skycons.js" />
+    <Content Include="ogretmenweb\js\TweenLite.min.js" />
+    <Content Include="ogretmenweb\js\underscore-min.js" />
+    <Content Include="ogretmenweb\js\vix.js" />
+    <Content Include="ogretmenweb\js\vroom.js" />
+    <Content Include="ogretmenweb\login.html" />
+    <Content Include="ogretmenweb\map.html" />
+    <Content Include="ogretmenweb\media.html" />
+    <Content Include="ogretmenweb\profile.html" />
+    <Content Include="ogretmenweb\project.html" />
+    <Content Include="ogretmenweb\register.html" />
+    <Content Include="ogretmenweb\ribbon.html" />
+    <Content Include="ogretmenweb\sign.html" />
+    <Content Include="ogretmenweb\table.html" />
+    <Content Include="ogretmenweb\tabs.html" />
+    <Content Include="ogretmenweb\typography.html" />
+    <Content Include="ogretmenweb\validation.html" />
+    <Content Include="ogretmenweb\w3layouts-License.txt" />
+    <Content Include="ogretmenweb\widget.html" />
+    <Content Include="scriptss\all.min.css" />
+    <Content Include="scriptss\bootstrap.bundle.min.js" />
+    <Content Include="scriptss\jquery.easing.min.js" />
+    <Content Include="scriptss\jquery.min.js" />
+    <Content Include="scriptss\sb-admin-2.min.css" />
+    <Content Include="scriptss\sb-admin-2.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="web404\css\font-awesome.css" />
+    <Content Include="web404\css\style.css" />
+    <Content Include="web404\fonts\fontawesome-webfont.svg" />
+    <Content Include="web404\images\banner1.jpg" />
+    <Content Include="web404\index.html" />
+    <Content Include="web404\w3layouts-license.txt" />
+    <Content Include="webacilis\css\bootstrap.css" />
+    <Content Include="webacilis\css\font-awesome.min.css" />
+    <Content Include="webacilis\css\style.css" />
+    <Content Include="webacilis\fonts\fontawesome-webfont.svg" />
+    <Content Include="webacilis\images\1.jpg" />
+    <Content Include="webacilis\images\about.jpg" />
+    <Content Include="webacilis\images\banner.jpg" />
+    <Content Include="webacilis\images\bg1.jpg" />
+    <Content Include="webacilis\images\bg2.jpg" />
+    <Content Include="webacilis\images\bg3.jpg" />
+    <Content Include="webacilis\images\g1.jpg" />
+    <Content Include="webacilis\images\g2.jpg" />
+    <Content Include="webacilis\images\g3.jpg" />
+    <Content Include="webacilis\images\g4.jpg" />
+    <Content Include="webacilis\images\g5.jpg" />
+    <Content Include="webacilis\images\g6.jpg" />
+    <Content Include="webacilis\images\g7.jpg" />
+    <Content Include="webacilis\images\g8.jpg" />
+    <Content Include="webacilis\images\g9.jpg" />
+    <Content Include="webacilis\images\img3.png" />
+    <Content Include="webacilis\images\p1.jpg" />
+    <Content Include="webacilis\images\p2.jpg" />
+    <Content Include="webacilis\images\p3.jpg" />
+    <Content Include="webacilis\images\p4.jpg" />
+    <Content Include="webacilis\images\te1.jpg" />
+    <Content Include="webacilis\index.html" />
+    <Content Include="webacilis\login.html" />
+    <Content Include="webacilis\register.html" />
+    <Content Include="webacilis\w3layouts-License.txt" />
+    <Content Include="webfonts\fa-brands-400.svg" />
+    <Content Include="webfonts\fa-regular-400.svg" />
+    <Content Include="webfonts\fa-solid-900.svg" />
+    <Content Include="webfonts\undraw_profile.svg" />
+    <Content Include="webfonts\undraw_profile_1.svg" />
+    <Content Include="webfonts\undraw_profile_2.svg" />
+    <Content Include="webfonts\undraw_profile_3.svg" />
+    <Content Include="web\404.html" />
+    <Content Include="web\basic_table.html" />
+    <Content Include="web\chartjs.html" />
+    <Content Include="web\css\bootstrap.min.css" />
+    <Content Include="web\css\font-awesome.css" />
+    <Content Include="web\css\font.css" />
+    <Content Include="web\css\jqvmap.css" />
+    <Content Include="web\css\lightbox.css" />
+    <Content Include="web\css\minimal.css" />
+    <Content Include="web\css\monthly.css" />
+    <Content Include="web\css\morris.css" />
+    <Content Include="web\css\style-responsive.css" />
+    <Content Include="web\css\style.css" />
+    <Content Include="web\dropzone.html" />
+    <Content Include="web\flot_chart.html" />
+    <Content Include="web\fontawesome.html" />
+    <Content Include="web\fonts\fontawesome-webfont.svg" />
+    <Content Include="web\form_component.html" />
+    <Content Include="web\form_validation.html" />
+    <Content Include="web\gallery.html" />
+    <Content Include="web\glyphicon.html" />
+    <Content Include="web\google_map.html" />
+    <Content Include="web\grids.html" />
+    <Content Include="web\images\1.png" />
+    <Content Include="web\images\2.png" />
+    <Content Include="web\images\3.png" />
+    <Content Include="web\images\bg.jpg" />
+    <Content Include="web\images\close.png" />
+    <Content Include="web\images\g1.jpg" />
+    <Content Include="web\images\g2.jpg" />
+    <Content Include="web\images\g3.jpg" />
+    <Content Include="web\images\g4.jpg" />
+    <Content Include="web\images\g5.jpg" />
+    <Content Include="web\images\g6.jpg" />
+    <Content Include="web\images\g7.jpg" />
+    <Content Include="web\images\g8.jpg" />
+    <Content Include="web\images\g9.jpg" />
+    <Content Include="web\images\mail.png" />
+    <Content Include="web\images\minimal.png" />
+    <Content Include="web\images\nav-expand.png" />
+    <Content Include="web\images\next.png" />
+    <Content Include="web\images\pass.png" />
+    <Content Include="web\images\prev.png" />
+    <Content Include="web\images\search-icon.png" />
+    <Content Include="web\index.html" />
+    <Content Include="web\js\bootstrap.js" />
+    <Content Include="web\js\jquery.dcjqaccordion.2.7.js" />
+    <Content Include="web\js\jquery.fileupload.js" />
+    <Content Include="web\js\jquery.min.js" />
+    <Content Include="web\js\jquery.nicescroll.js" />
+    <Content Include="web\js\jquery.scrollTo.js" />
+    <Content Include="web\js\jquery.slimscroll.js" />
+    <Content Include="web\js\jquery.vmap.asia.js" />
+    <Content Include="web\js\jquery.vmap.australia.js" />
+    <Content Include="web\js\jquery.vmap.europe.js" />
+    <Content Include="web\js\jquery.vmap.js" />
+    <Content Include="web\js\jquery.vmap.sampledata.js" />
+    <Content Include="web\js\jquery.vmap.world.js" />
+    <Content Include="web\js\jquery2.0.3.min.js" />
+    <Content Include="web\js\lightbox-plus-jquery.min.js" />
+    <Content Include="web\js\monthly.js" />
+    <Content Include="web\js\morris.js" />
+    <Content Include="web\js\raphael-min.js" />
+    <Content Include="Scripts\script.js" />
+    <Content Include="Scripts\scripts.js" />
+    <Content Include="web\login.html" />
+    <Content Include="web\mail.html" />
+    <Content Include="web\mail_compose.html" />
+    <Content Include="web\registration.html" />
+    <Content Include="web\responsive_table.html" />
+    <Content Include="web\typography.html" />
+    <Content Include="web\vector_map.html" />
+    <Content Include="web\w3layouts-License.txt" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="ogretmenweb\fonts\digital-7-webfont.eot" />
+    <Content Include="ogretmenweb\fonts\digital-7-webfont.ttf" />
+    <Content Include="ogretmenweb\fonts\digital-7-webfont.woff" />
+    <Content Include="ogretmenweb\fonts\digital-7_italic-webfont.eot" />
+    <Content Include="ogretmenweb\fonts\digital-7_italic-webfont.ttf" />
+    <Content Include="ogretmenweb\fonts\digital-7_italic-webfont.woff" />
+    <Content Include="ogretmenweb\fonts\digital-7_mono-webfont.eot" />
+    <Content Include="ogretmenweb\fonts\digital-7_mono-webfont.ttf" />
+    <Content Include="ogretmenweb\fonts\digital-7_mono-webfont.woff" />
+    <Content Include="ogretmenweb\fonts\fontawesome-webfont.eot" />
+    <Content Include="ogretmenweb\fonts\fontawesome-webfont.ttf" />
+    <Content Include="ogretmenweb\fonts\fontawesome-webfont.woff" />
+    <Content Include="ogretmenweb\fonts\FontAwesome.otf" />
+    <Content Include="ogretmenweb\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="ogretmenweb\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="ogretmenweb\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="ogretmenweb\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="ogretmenweb\fonts\weathericons-regular-webfont.eot" />
+    <Content Include="ogretmenweb\fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="ogretmenweb\fonts\weathericons-regular-webfont.woff" />
+    <Content Include="ogretmenweb\maps\africa.json" />
+    <Content Include="ogretmenweb\maps\america.json" />
+    <Content Include="ogretmenweb\maps\asia.json" />
+    <Content Include="ogretmenweb\maps\europe.json" />
+    <Content Include="ogretmenweb\maps\mideast.json" />
+    <Content Include="ogretmenweb\maps\risk.json" />
+    <Content Include="ogretmenweb\maps\usofa.json" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="webfonts\fa-brands-400.eot" />
+    <Content Include="webfonts\fa-brands-400.ttf" />
+    <Content Include="webfonts\fa-brands-400.woff" />
+    <Content Include="webfonts\fa-brands-400.woff2" />
+    <Content Include="webfonts\fa-regular-400.eot" />
+    <Content Include="webfonts\fa-regular-400.ttf" />
+    <Content Include="webfonts\fa-regular-400.woff" />
+    <Content Include="webfonts\fa-regular-400.woff2" />
+    <Content Include="webfonts\fa-solid-900.eot" />
+    <Content Include="webfonts\fa-solid-900.ttf" />
+    <Content Include="webfonts\fa-solid-900.woff" />
+    <Content Include="webfonts\fa-solid-900.woff2" />
+    <Content Include="Views\kullanıcı_ogrenci\Create.cshtml" />
+    <Content Include="Views\kullanıcı_ogrenci\Delete.cshtml" />
+    <Content Include="Views\kullanıcı_ogrenci\Details.cshtml" />
+    <Content Include="Views\kullanıcı_ogrenci\Edit.cshtml" />
+    <Content Include="Views\kullanıcı_ogrenci\Index.cshtml" />
+    <Content Include="Views\kullanıcı_ogretmen\Create.cshtml" />
+    <Content Include="Views\kullanıcı_ogretmen\Delete.cshtml" />
+    <Content Include="Views\kullanıcı_ogretmen\Details.cshtml" />
+    <Content Include="Views\kullanıcı_ogretmen\Edit.cshtml" />
+    <Content Include="Views\kullanıcı_ogretmen\Index.cshtml" />
+    <Content Include="Views\ogretmen\Delete.cshtml" />
+    <Content Include="Views\ogretmen\Details.cshtml" />
+    <Content Include="Views\ogretmen\Edit.cshtml" />
+    <Content Include="Views\ogretmen\Index.cshtml" />
+    <Content Include="Views\Güvenlik\GirisYap.cshtml" />
+    <Content Include="Views\Güvenlik\OgrenciGirisYap.cshtml" />
+    <Content Include="Views\ogretmen\ogrencifiltrele.cshtml" />
+    <Content Include="web\fonts\fontawesome-webfont.eot" />
+    <Content Include="web\fonts\fontawesome-webfont.ttf" />
+    <Content Include="web\fonts\fontawesome-webfont.woff" />
+    <Content Include="web\fonts\fontawesome-webfont.woff2" />
+    <Content Include="web\fonts\FontAwesome.otf" />
+    <Content Include="web\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="web\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Views\ogretmen\View.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
+    <Content Include="Views\ogretmen\Create.cshtml" />
+    <Content Include="Views\ogretmen\ogretmenilkekran.cshtml" />
+    <Content Include="Views\ogretmen\gridsearch.cshtml" />
+    <Content Include="Views\ogretmen\webgrid.cshtml" />
+    <Content Include="webacilis\fonts\fontawesome-webfont.eot" />
+    <Content Include="webacilis\fonts\fontawesome-webfont.ttf" />
+    <Content Include="webacilis\fonts\fontawesome-webfont.woff" />
+    <Content Include="webacilis\fonts\fontawesome-webfont.woff2" />
+    <Content Include="webacilis\fonts\FontAwesome.otf" />
+    <Content Include="Views\Home\acilisekranı.cshtml" />
+    <Content Include="Views\ogretmen\ogrenciilkekran.cshtml" />
+    <Content Include="Views\Home\bakımdaekranı.cshtml" />
+    <Content Include="web404\fonts\fontawesome-webfont.eot" />
+    <Content Include="web404\fonts\fontawesome-webfont.ttf" />
+    <Content Include="web404\fonts\fontawesome-webfont.woff" />
+    <Content Include="web404\fonts\fontawesome-webfont.woff2" />
+    <Content Include="web404\fonts\FontAwesome.otf" />
+    <Content Include="Views\ogretmen\cokkieolustur.cshtml" />
+    <Content Include="Views\ogretmen\cokkiesil.cshtml" />
+    <Content Include="Views\Home\ogretmendropdown.cshtml" />
+    <Content Include="Views\ogretmen\ogretmendropdown.cshtml" />
+    <Content Include="Views\ogretmenlayout\Create.cshtml" />
+    <Content Include="Views\ogretmenlayout\Delete.cshtml" />
+    <Content Include="Views\ogretmenlayout\Details.cshtml" />
+    <Content Include="Views\ogretmenlayout\Edit.cshtml" />
+    <Content Include="Views\ogretmenlayout\Index.cshtml" />
+    <Content Include="Views\Home\Ogretmenlayoutbakımdaekranı.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57025</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44362/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,72 @@
+﻿@model OgrenciBilgiSistemi.Models.OgrenciOgretmenbaglanti
+
+
+<br />
+@using (Html.BeginForm("Create", "ogretmen", FormMethod.Post))
+{
+
+    <div class="container">
+
+        <div class="form-group">
+            @Html.DropDownListFor(Model => Model.ogrenci_numara, Model.ogrenciList, "--ogrenciSeçin--", new { @class = "form-control" })
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="form-group">
+            @Html.DropDownListFor(Model => Model.ogretmenID, new SelectList(""), "--ogretmen secin--", new { @class = "form-control" })
+
+        </div>
+
+    </div>
+
+}
+
+<html>
+<body>
+
+
+
+    @section scripts
+{
+
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $('#ogrenci_numara').change(function () {
+                    var id = $(this).val();
+                    var ogretmenList = $('#ogretmenID');
+                    ogretmenList.empty();
+
+                    $.ajax({
+                        url: '/ogretmen/GetogretmenList',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: { 'id': id },
+                        success: function (data) {
+                            $.each(data, function (ogretmendropdown, option) {
+                                ogretmenList.append('<option value =' + option.Value + '>' + option.Text + '</option>');
+
+                            })
+
+                        }
+
+
+                    });
+
+
+                });
+
+            });
+
+
+
+        </script>
+
+    }
+</body>
+</html>

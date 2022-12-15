@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="nottakipModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="kullanıcı_ogrenci">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OgrenciNo" Type="int" />
+    <Property Name="KullanıcıSifre" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="kullanıcı_ogretmen">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="KullaniciAd" Type="nvarchar" MaxLength="50" />
+    <Property Name="KullanıcıSifre" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ogrenci">
+    <Key>
+      <PropertyRef Name="ogrenci_numara" />
+    </Key>
+    <Property Name="ogrenci_numara" Type="int" Nullable="false" />
+    <Property Name="ogrenci_adı" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ogretmen">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ogrenci_numara" Type="int" />
+    <Property Name="Ders_Kodu" Type="int" />
+    <Property Name="Ders_Adı" Type="nvarchar" MaxLength="50" />
+    <Property Name="Vize_Notu" Type="tinyint" />
+    <Property Name="Final_Notu" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ogretmen_ogrenci">
+    <End Role="ogrenci" Type="Self.ogrenci" Multiplicity="0..1" />
+    <End Role="ogretmen" Type="Self.ogretmen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ogrenci">
+        <PropertyRef Name="ogrenci_numara" />
+      </Principal>
+      <Dependent Role="ogretmen">
+        <PropertyRef Name="ogrenci_numara" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="nottakipModelStoreContainer">
+    <EntitySet Name="kullanıcı_ogrenci" EntityType="Self.kullanıcı_ogrenci" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="kullanıcı_ogretmen" EntityType="Self.kullanıcı_ogretmen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ogrenci" EntityType="Self.ogrenci" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ogretmen" EntityType="Self.ogretmen" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ogretmen_ogrenci" Association="Self.FK_ogretmen_ogrenci">
+      <End Role="ogrenci" EntitySet="ogrenci" />
+      <End Role="ogretmen" EntitySet="ogretmen" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

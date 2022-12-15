@@ -1,0 +1,66 @@
+﻿@model OgrenciBilgiSistemi.Models.ogretmen
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>ogretmen</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Ders_Kodu)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Ders_Kodu)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Ders_Adı)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Ders_Adı)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Vize_Notu)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Vize_Notu)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Final_Notu)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Final_Notu)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ogrenci.ogrenci_adı)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ogrenci.ogrenci_adı)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

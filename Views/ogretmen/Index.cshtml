@@ -1,0 +1,65 @@
+﻿@model IEnumerable<OgrenciBilgiSistemi.Models.ogretmen>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ders_Kodu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ders_Adı)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vize_Notu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Final_Notu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ogrenci.ogrenci_adı)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ders_Kodu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ders_Adı)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vize_Notu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Final_Notu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ogrenci.ogrenci_adı)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

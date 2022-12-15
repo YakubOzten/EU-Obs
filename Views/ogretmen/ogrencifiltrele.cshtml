@@ -1,0 +1,73 @@
+﻿@model IEnumerable<OgrenciBilgiSistemi.Models.ogretmen>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Ogrencilerin Listesi";
+    var ornekgrid = new WebGrid(source: Model, canPage: true, rowsPerPage:15);
+    ornekgrid.Pager(WebGridPagerModes.All);
+}
+
+@if (Session["OgrenciNo"] != null)
+{
+    <text>
+        <h1>Hoşgeldin @Session["OgrenciNo"].ToString()</h1>
+
+
+    </text>
+}
+<h2>Not Bilgi Ekranı</h2>
+<style type="text/css">
+    .webgrid-table {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-size: 1.2em;
+        width: 100%;
+        display: table;
+        border-collapse: separate;
+        border: solid 1px #98BF21;
+        background-color: white;
+    }
+
+        .webgrid-table td, th {
+            border: 1px solid #98BF21;
+            padding: 8px 9px 4px;
+        }
+
+    .webgrid-header {
+        background-color: #A7C942;
+        color: #FFFFFF;
+        padding-bottom: 6px;
+        padding-top: 7px;
+        text-align: left;
+    }
+
+    .webgrid-footer {
+    }
+
+    .webgrid-row-style {
+        padding: 3px 7px 2px;
+    }
+
+    .webgrid-alternating-row {
+        background-color: #EAF2D3;
+        padding: 3px 7px 2px;
+    }
+</style>
+<div id="content">
+    @ornekgrid.GetHtml(
+    tableStyle: "webgrid-table",
+    headerStyle: "webgrid-header",
+    footerStyle: "webgrid-footer",
+    alternatingRowStyle: "webgrid-alternating-row",
+    rowStyle: "webgrid-row-style",
+    columns: ornekgrid.Columns(
+ornekgrid.Column(columnName: "ogrenci_numara", header: "Öğrenci numara"),
+ornekgrid.Column(columnName: "Ders_Kodu", header: "Ders Kodu"),
+ornekgrid.Column(columnName: "Ders_Adı", header: "Ders Adı"),
+ornekgrid.Column(columnName: "Vize_Notu", header: "Vize Notu"),
+ornekgrid.Column(columnName: "Final_Notu", header: "Final Notu"),
+ornekgrid.Column(columnName: "ogrenci.ogrenci_adı", header: "Öğrenci adı")
+    
+
+
+))
+</div>

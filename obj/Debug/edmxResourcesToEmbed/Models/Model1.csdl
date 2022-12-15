@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="nottakipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="kullanıcı_ogrenci">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OgrenciNo" Type="Int32" />
+    <Property Name="KullanıcıSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="kullanıcı_ogretmen">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="KullaniciAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KullanıcıSifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ogrenci">
+    <Key>
+      <PropertyRef Name="ogrenci_numara" />
+    </Key>
+    <Property Name="ogrenci_numara" Type="Int32" Nullable="false" />
+    <Property Name="ogrenci_adı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ogretmen" Relationship="Self.FK_ogretmen_ogrenci" FromRole="ogrenci" ToRole="ogretmen" />
+  </EntityType>
+  <EntityType Name="ogretmen">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ogrenci_numara" Type="Int32" />
+    <Property Name="Ders_Kodu" Type="Int32" />
+    <Property Name="Ders_Adı" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Vize_Notu" Type="Byte" />
+    <Property Name="Final_Notu" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="ogrenci" Relationship="Self.FK_ogretmen_ogrenci" FromRole="ogretmen" ToRole="ogrenci" />
+  </EntityType>
+  <Association Name="FK_ogretmen_ogrenci">
+    <End Role="ogrenci" Type="Self.ogrenci" Multiplicity="0..1" />
+    <End Role="ogretmen" Type="Self.ogretmen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ogrenci">
+        <PropertyRef Name="ogrenci_numara" />
+      </Principal>
+      <Dependent Role="ogretmen">
+        <PropertyRef Name="ogrenci_numara" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="nottakipEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="kullanıcı_ogrenci" EntityType="Self.kullanıcı_ogrenci" />
+    <EntitySet Name="kullanıcı_ogretmen" EntityType="Self.kullanıcı_ogretmen" />
+    <EntitySet Name="ogrenci" EntityType="Self.ogrenci" />
+    <EntitySet Name="ogretmen" EntityType="Self.ogretmen" />
+    <AssociationSet Name="FK_ogretmen_ogrenci" Association="Self.FK_ogretmen_ogrenci">
+      <End Role="ogrenci" EntitySet="ogrenci" />
+      <End Role="ogretmen" EntitySet="ogretmen" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

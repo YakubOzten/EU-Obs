@@ -1,0 +1,107 @@
+﻿@model List<OgrenciBilgiSistemi.Models.ogretmen>
+
+@{
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    var ornekgrid = new WebGrid(source: Model, canPage: true, rowsPerPage: 30);
+    ornekgrid.Pager(WebGridPagerModes.All);
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>gridsearch</title>
+</head>
+<body>
+    <h2>Öğrenci Not Bilgisi Arama</h2>
+    <h3> Toplam kayıt Sayısı : @ViewBag.TotalRows</h3>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                @using (Html.BeginForm("gridsearch", "ogretmen", FormMethod.Get, new { @class = "navbar-form navbar left " }))
+                {
+                    <div class="form-group">
+                        <input type="text" name="search" value="@ViewBag.search" class="form-control" placeholder="Ara" />
+
+                    </div>
+
+                    <button type="submit" value="ARA" class="btn fa fa-search"></button>
+                }
+
+            </div>
+        </div>
+
+    </nav>
+    <style type="text/css">
+        .webgrid-table {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-size: 1.2em;
+            width: 100%;
+            display: table;
+            border-collapse: separate;
+            border: solid 1px #98BF21;
+            background-color: white;
+        }
+
+            .webgrid-table td, th {
+                border: 1px solid #98BF21;
+                padding: 3px 7px 2px;
+            }
+
+        .webgrid-header {
+            background-color: #A7C942;
+            color: #FFFFFF;
+            padding-bottom: 4px;
+            padding-top: 5px;
+            text-align: left;
+        }
+
+        .webgrid-footer {
+        }
+
+        .webgrid-row-style {
+            padding: 3px 7px 2px;
+        }
+
+        .webgrid-alternating-row {
+            background-color: #EAF2D3;
+            padding: 3px 7px 2px;
+        }
+    </style>
+    <div id="content">
+        @ornekgrid.GetHtml(
+        tableStyle: "webgrid-table",
+        headerStyle: "webgrid-header",
+        footerStyle: "webgrid-footer",
+        alternatingRowStyle: "webgrid-alternating-row",
+        rowStyle: "webgrid-row-style",
+        columns: ornekgrid.Columns(
+       ornekgrid.Column(columnName: "ogrenci_numara", header: "Öğrenci numara:"),
+    ornekgrid.Column(columnName: "Ders_Kodu", header: "Ders Kodu:"),
+    ornekgrid.Column(columnName: "Ders_Adı", header: "Ders Adı:"),
+    ornekgrid.Column(columnName: "Vize_Notu", header: "Vize Notu:"),
+    ornekgrid.Column(columnName: "Final_Notu", header: "Final Notu:")
+   
+
+
+    ))
+    </div>
+    <!--
+       <div>
+
+           @ornekgrid.Table(
+            tableStyle: "table table-responsive table-bordered",
+        columns: ornekgrid.Columns(
+    ornekgrid.Column(columnName: "ogrenci_numara", header: "ögrenci_numara"),
+    ornekgrid.Column(columnName: "Ders_Kodu", header: "Ders_Kodu"),
+    ornekgrid.Column(columnName: "Ders_Adı", header: "Ders_Adı"),
+    ornekgrid.Column(columnName: "Vize_Notu", header: "Vize_Notu"),
+    ornekgrid.Column(columnName: "Final_Notu", header: "Final_Notu")
+    ))
+
+       </div>
+        -->
+</body>
+</html>

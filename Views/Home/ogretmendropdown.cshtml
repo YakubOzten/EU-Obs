@@ -1,0 +1,46 @@
+﻿
+@model OgrenciBilgiSistemi.Models.baglanti
+@{
+    Layout = null;
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(function () {
+        $('#dropogrenci').change(function () {
+            var id = $('#dropogrenci').val();
+            $.ajax({
+                url: '/Home/GetogretmenList',
+                data: { p: id },
+                type= "POST",
+                dataType: "Json",
+
+                success: function (data) {
+                    console.log(data);
+                    $('#dropogretmen').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        $('#dropogretmen').append("<option value ='" +
+                            data[i].Value + "'>" + data[i].Text + "</Option>");
+                    }
+                }
+            });
+
+        });
+
+    });
+</script>
+
+<div>
+    <h3>Ogrenci-ogretmen</h3>
+</div>
+<div style="margin-left:50px">
+    @Html.Label("ogrenci")
+    @Html.DropDownList("dropogrenci", Model.ogrenciList, "--ogrenci", new { @class = "form-control" })
+    <br />
+    @Html.Label("ogretmen")
+    @Html.DropDownList("dropogretmen", Model.ogretmenList, "--ogretmenler", new { @class = "form-control" })
+</div>
+
+
+
+
